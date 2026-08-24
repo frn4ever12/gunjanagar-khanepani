@@ -98,7 +98,7 @@ class NepaliDateHelper
             // BS year ≈ AD year + 56.8
             $bsYear = $year + 56;
             $bsMonth = $month + 8;
-            $bsDay = $day + 17;
+            $bsDay = $day + 16;
 
             // Adjust month overflow
             if ($bsMonth > 12) {
@@ -133,10 +133,10 @@ class NepaliDateHelper
      */
     private static function simpleAdToBs($year, $month, $day)
     {
-        // Simple approximation: BS = AD + 56 years, 8 months, 17 days
+        // Simple approximation: BS = AD + 56 years, 8 months, 16 days
         $bsYear = $year + 56;
         $bsMonth = $month + 8;
-        $bsDay = $day + 17;
+        $bsDay = $day + 16;
 
         // Adjust month overflow
         if ($bsMonth > 12) {
