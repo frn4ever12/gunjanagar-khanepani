@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('water_statuses', function (Blueprint $table) {
+            $table->id();
+            $table->enum('status', ['normal', 'low_pressure', 'maintenance', 'temporarily_suspended'])->default('normal');
+            $table->string('affected_area')->nullable();
+            $table->datetime('expected_restoration')->nullable();
+            $table->text('remarks_en')->nullable();
+            $table->text('remarks_ne')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('water_statuses');
+    }
+};
