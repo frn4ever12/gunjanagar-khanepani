@@ -957,6 +957,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('water-schedule') }}">{{ __('messages.water_schedule') }}</a></li>
                             <li><a class="dropdown-item" href="{{ route('water-quality') }}">{{ __('messages.water_quality') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('bill-payment') }}">{{ __('messages.bill_payment') }}</a></li>
                             <li><a class="dropdown-item" href="{{ route('complaint.form') }}">{{ __('messages.complaints') }}</a></li>
                         </ul>
                     </li>

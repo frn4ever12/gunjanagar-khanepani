@@ -11,6 +11,7 @@ return [
     'water_quality' => 'Water Quality',
     'citizen_charter' => 'Citizen Charter',
     'citizen_services' => 'Citizen Services',
+    'bill_payment' => 'Bill Payment',
     'downloads' => 'Downloads',
     'reports' => 'Reports',
     'faq' => 'FAQs',

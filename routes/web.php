@@ -43,6 +43,7 @@ Route::get('/faqs', [HomeController::class, 'faqs'])->name('faqs');
 Route::get('/water-status', [HomeController::class, 'waterStatus'])->name('water-status');
 Route::get('/water-schedule', [HomeController::class, 'waterSchedule'])->name('water-schedule');
 Route::get('/water-quality', [HomeController::class, 'waterQuality'])->name('water-quality');
+Route::get('/bill-payment', [HomeController::class, 'billPayment'])->name('bill-payment');
 Route::get('/complaint', [HomeController::class, 'complaintForm'])->name('complaint.form');
 Route::post('/complaint', [HomeController::class, 'submitComplaint'])->name('complaint.submit');
 

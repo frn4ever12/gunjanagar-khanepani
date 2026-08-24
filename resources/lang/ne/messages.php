@@ -11,6 +11,7 @@ return [
     'water_quality' => 'खानेपानी गुणस्तर',
     'citizen_charter' => 'नागरिक वडापत्र',
     'citizen_services' => 'नागरिक सेवाहरू',
+    'bill_payment' => 'बिल भुक्तानी',
     'downloads' => 'डाउनलोडहरू',
     'reports' => 'प्रतिवेदनहरू',
     'faq' => 'सामान्य प्रश्नहरू',

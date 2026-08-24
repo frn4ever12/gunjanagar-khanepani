@@ -205,6 +205,12 @@ class HomeController extends Controller
         return view('water-quality', compact('qualities', 'tickerItems'));
     }
 
+    public function billPayment()
+    {
+        $tickerItems = $this->getTickerItems();
+        return view('bill-payment', compact('tickerItems'));
+    }
+
     public function complaintForm()
     {
         $tickerItems = $this->getTickerItems();
