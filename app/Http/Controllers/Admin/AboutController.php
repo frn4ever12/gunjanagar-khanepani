@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
+    public function index()
+    {
+        return view('admin.about.index');
+    }
+
     public function edit()
     {
         $about = AboutUs::first();
@@ -61,6 +66,14 @@ class AboutController extends Controller
             'organization_intro_ne' => 'nullable|string',
         ]);
 
+        // Set default values for required fields if creating new record
+        if (!$about->exists) {
+            $about->title_en = 'About Us';
+            $about->title_ne = 'हाम्रो बारेमा';
+            $about->description_en = 'Description';
+            $about->description_ne = 'विवरण';
+        }
+
         $about->organization_intro_en = $request->organization_intro_en;
         $about->organization_intro_ne = $request->organization_intro_ne;
         $about->save();
@@ -82,6 +95,14 @@ class AboutController extends Controller
             'mission_en' => 'nullable|string',
             'mission_ne' => 'nullable|string',
         ]);
+
+        // Set default values for required fields if creating new record
+        if (!$about->exists) {
+            $about->title_en = 'About Us';
+            $about->title_ne = 'हाम्रो बारेमा';
+            $about->description_en = 'Description';
+            $about->description_ne = 'विवरण';
+        }
 
         $about->mission_en = $request->mission_en;
         $about->mission_ne = $request->mission_ne;
@@ -105,6 +126,14 @@ class AboutController extends Controller
             'vision_ne' => 'nullable|string',
         ]);
 
+        // Set default values for required fields if creating new record
+        if (!$about->exists) {
+            $about->title_en = 'About Us';
+            $about->title_ne = 'हाम्रो बारेमा';
+            $about->description_en = 'Description';
+            $about->description_ne = 'विवरण';
+        }
+
         $about->vision_en = $request->vision_en;
         $about->vision_ne = $request->vision_ne;
         $about->save();
@@ -126,6 +155,14 @@ class AboutController extends Controller
             'organization_structure_en' => 'nullable|string',
             'organization_structure_ne' => 'nullable|string',
         ]);
+
+        // Set default values for required fields if creating new record
+        if (!$about->exists) {
+            $about->title_en = 'About Us';
+            $about->title_ne = 'हाम्रो बारेमा';
+            $about->description_en = 'Description';
+            $about->description_ne = 'विवरण';
+        }
 
         $about->organization_structure_en = $request->organization_structure_en;
         $about->organization_structure_ne = $request->organization_structure_ne;

@@ -3,14 +3,6 @@
 @section('title', __('messages.board_members_page_title'))
 
 @section('content')
-<!-- Hero Section -->
-<div class="hero-section text-center text-white" style="background: linear-gradient(135deg, var(--primary-color), var(--water-blue)); padding: 80px 0;">
-    <div class="container">
-        <h1 class="display-4 fw-bold mb-3">{{ __('messages.board_members_page_title') }}</h1>
-        <p class="lead">{{ __('messages.about_us') }}</p>
-    </div>
-</div>
-
 <!-- Board Members Section -->
 <section class="py-5">
     <div class="container">

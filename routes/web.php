@@ -204,7 +204,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // About Us Routes
     Route::prefix('about')->name('about.')->group(function () {
-        Route::get('/', [AboutController::class, 'edit'])->name('edit');
+        Route::get('/', [AboutController::class, 'index'])->name('index');
+        Route::get('/edit', [AboutController::class, 'edit'])->name('edit');
         Route::put('/', [AboutController::class, 'update'])->name('update');
         Route::get('/organization-intro', [AboutController::class, 'editOrganizationIntro'])->name('edit-organization-intro');
         Route::put('/organization-intro', [AboutController::class, 'updateOrganizationIntro'])->name('update-organization-intro');

@@ -304,34 +304,6 @@
                         <span>{{ __('messages.statistics') }}</span>
                     </a>
                 </li>
-            </ul>
-            
-            <div class="nav-header">About Us</div>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit-organization-intro') ? 'active' : '' }}" href="{{ route('admin.about.edit-organization-intro') }}">
-                        <i class="bi bi-building"></i>
-                        <span>{{ __('messages.organization_intro') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit-our-mission') ? 'active' : '' }}" href="{{ route('admin.about.edit-our-mission') }}">
-                        <i class="bi bi-bullseye"></i>
-                        <span>{{ __('messages.our_mission') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit-our-vision') ? 'active' : '' }}" href="{{ route('admin.about.edit-our-vision') }}">
-                        <i class="bi bi-eye"></i>
-                        <span>{{ __('messages.our_vision') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit-organization-structure') ? 'active' : '' }}" href="{{ route('admin.about.edit-organization-structure') }}">
-                        <i class="bi bi-diagram-3"></i>
-                        <span>{{ __('messages.organization_structure') }}</span>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.board-members.*') ? 'active' : '' }}" href="{{ route('admin.board-members.index') }}">
                         <i class="bi bi-people"></i>
@@ -342,6 +314,16 @@
                     <a class="nav-link {{ request()->routeIs('admin.office-staff.*') ? 'active' : '' }}" href="{{ route('admin.office-staff.index') }}">
                         <i class="bi bi-person-badge"></i>
                         <span>{{ __('messages.office_staff') }}</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="nav-header">About Us</div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.about.*') ? 'active' : '' }}" href="{{ route('admin.about.index') }}">
+                        <i class="bi bi-info-circle"></i>
+                        <span>{{ __('messages.about') }}</span>
                     </a>
                 </li>
             </ul>

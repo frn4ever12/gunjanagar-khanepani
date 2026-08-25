@@ -101,42 +101,12 @@
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <div class="section-header text-start">
-                    <h2>{{ $about->title }}</h2>
+                    <h2>{{ __('messages.organization_intro') }}</h2>
                     <div class="divider" style="margin: 0;"></div>
                 </div>
                 <p class="mt-4 text-muted" style="font-size: 16px; line-height: 1.8;">
-                    {{ $about->description }}
+                    {!! $about->organization_intro !!}
                 </p>
-                @if($about->mission)
-                <div class="row mt-4">
-                    <div class="col-12 mb-3">
-                        <div class="d-flex align-items-start">
-                            <div class="icon-box me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--water-blue), var(--accent-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="bi bi-bullseye text-white fs-5"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-2 fw-bold" style="color: var(--primary-color);">{{ __('messages.our_mission') }}</h6>
-                                <small class="text-muted">{{ $about->mission }}</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
-                @if($about->vision)
-                <div class="row mt-2">
-                    <div class="col-12 mb-3">
-                        <div class="d-flex align-items-start">
-                            <div class="icon-box me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--water-blue), var(--accent-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="bi bi-eye text-white fs-5"></i>
-                            </div>
-                            <div>
-                                <h6 class="mb-2 fw-bold" style="color: var(--primary-color);">{{ __('messages.our_vision') }}</h6>
-                                <small class="text-muted">{{ $about->vision }}</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
                 <a href="{{ route('about') }}" class="btn btn-primary mt-3" style="background: var(--water-blue); border: none; padding: 10px 25px;">
                     {{ __('messages.learn_more') }} <i class="bi bi-arrow-right ms-2"></i>
                 </a>
@@ -144,14 +114,14 @@
             <div class="col-lg-6">
                 <div class="about-image position-relative">
                     @if($about->image)
-                        <img src="{{ asset('storage/' . $about->image) }}" alt="{{ $about->title }}" class="img-fluid rounded" style="width: 100%; height: auto;">
+                        <img src="{{ asset('storage/' . $about->image) }}" alt="{{ __('messages.organization_intro') }}" class="img-fluid rounded" style="width: 100%; height: auto;">
                     @else
                         <div style="background: linear-gradient(135deg, var(--primary-color), var(--water-blue)); border-radius: 10px; padding: 40px; color: white; text-align: center;">
-                            <i class="bi bi-water" style="font-size: 80px; opacity: 0.8;"></i>
-                            <h4 class="mt-3 fw-bold">{{ __('messages.our_mission') }}</h4>
-                            @if($about->mission)
+                            <i class="bi bi-building" style="font-size: 80px; opacity: 0.8;"></i>
+                            <h4 class="mt-3 fw-bold">{{ __('messages.organization_intro') }}</h4>
+                            @if($about->organization_intro)
                                 <p class="mt-2 mb-0" style="opacity: 0.9; font-size: 15px;">
-                                    {{ Str::limit($about->mission, 150) }}
+                                    {{ Str::limit(strip_tags($about->organization_intro), 150) }}
                                 </p>
                             @endif
                         </div>
