@@ -66,14 +66,10 @@
         }
         
         .sidebar-menu {
-            padding: 15px 0;
+            flex: 1;
             overflow-y: auto;
-            max-height: calc(100vh - 80px);
+            overflow-x: hidden;
             scroll-behavior: smooth;
-        }
-        
-        .sidebar-menu:hover {
-            overflow-y: auto;
         }
         
         .sidebar-menu::-webkit-scrollbar {
