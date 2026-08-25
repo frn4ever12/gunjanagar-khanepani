@@ -929,16 +929,36 @@
                             <i class="bi bi-house me-1"></i> {{ __('messages.home') }}
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {{ request()->routeIs('about*') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
                             {{ __('messages.about') }}
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('organization-intro') ? 'active' : '' }}" href="{{ route('organization-intro') }}">
+                            {{ __('messages.organization_intro') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('our-mission') ? 'active' : '' }}" href="{{ route('our-mission') }}">
+                            {{ __('messages.our_mission') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('our-vision') ? 'active' : '' }}" href="{{ route('our-vision') }}">
+                            {{ __('messages.our_vision') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('organization-structure') ? 'active' : '' }}" href="{{ route('organization-structure') }}">
+                            {{ __('messages.organization_structure') }}
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('board-members') || request()->routeIs('office-staff') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">
+                            {{ __('messages.board_members') }}
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">{{ __('messages.about') }}</a></li>
-                            <li><a class="dropdown-item {{ request()->routeIs('organization-intro') ? 'active' : '' }}" href="{{ route('organization-intro') }}">{{ __('messages.organization_intro') }}</a></li>
-                            <li><a class="dropdown-item {{ request()->routeIs('our-mission') ? 'active' : '' }}" href="{{ route('our-mission') }}">{{ __('messages.our_mission') }}</a></li>
-                            <li><a class="dropdown-item {{ request()->routeIs('our-vision') ? 'active' : '' }}" href="{{ route('our-vision') }}">{{ __('messages.our_vision') }}</a></li>
-                            <li><a class="dropdown-item {{ request()->routeIs('organization-structure') ? 'active' : '' }}" href="{{ route('organization-structure') }}">{{ __('messages.organization_structure') }}</a></li>
                             <li><a class="dropdown-item {{ request()->routeIs('board-members') ? 'active' : '' }}" href="{{ route('board-members') }}">{{ __('messages.board_members') }}</a></li>
                             <li><a class="dropdown-item {{ request()->routeIs('office-staff') ? 'active' : '' }}" href="{{ route('office-staff') }}">{{ __('messages.office_staff') }}</a></li>
                         </ul>
