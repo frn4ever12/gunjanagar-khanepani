@@ -65,6 +65,34 @@
             </div>
         </a>
     </div>
+
+    <div class="col-md-6 col-lg-3">
+        <a href="{{ route('admin.board-members.index') }}" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm hover-shadow" style="border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s;">
+                <div class="card-body text-center p-4">
+                    <div class="icon-box mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--water-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="bi bi-people text-white fs-2"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2" style="color: var(--primary-color);">{{ __('messages.board_members') }}</h5>
+                    <p class="text-muted small mb-0">{{ __('messages.manage_board_members') }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <a href="{{ route('admin.office-staff.index') }}" class="text-decoration-none">
+            <div class="card h-100 border-0 shadow-sm hover-shadow" style="border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s;">
+                <div class="card-body text-center p-4">
+                    <div class="icon-box mb-3" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--water-blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="bi bi-person-badge text-white fs-2"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2" style="color: var(--primary-color);">{{ __('messages.office_staff') }}</h5>
+                    <p class="text-muted small mb-0">{{ __('messages.manage_office_staff') }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
 
 <style>
