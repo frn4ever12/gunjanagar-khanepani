@@ -48,12 +48,12 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
         }
         
         .sidebar-brand {
             padding: 20px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
         }
         
         .sidebar-brand h4 {
@@ -68,11 +68,20 @@
             font-size: 12px;
         }
         
+        .nepali-date {
+            padding: 10px 20px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            flex-shrink: 0;
+        }
+        
         .sidebar-menu {
+            flex: 1;
             overflow-y: auto;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            max-height: calc(100vh - 180px);
         }
         
         .sidebar-menu::-webkit-scrollbar {
@@ -223,7 +232,7 @@
             <small>Admin Panel</small>
         </div>
         
-        <div class="nepali-date" style="padding: 10px 20px; text-align: center; color: white; font-size: 14px; border-bottom: 1px solid #eee;">
+        <div class="nepali-date">
             {{ \App\Helpers\NepaliDateHelper::getNepaliToday() }}
         </div>
         
