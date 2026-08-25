@@ -240,46 +240,90 @@
             <div class="divider"></div>
         </div>
         <div class="row g-3">
-            <!-- Office Staff -->
             <div class="col-6 col-md-3">
-                <div class="service-card">
-                    <div class="icon-wrapper">
-                        <i class="bi bi-people"></i>
-                    </div>
-                    <h5>{{ __('messages.office_staff') }}</h5>
-                    <p>Staff</p>
-                </div>
-            </div>
-            <!-- Our App -->
-            <div class="col-6 col-md-3">
-                <div class="service-card">
-                    <div class="icon-wrapper">
-                        <i class="bi bi-phone"></i>
-                    </div>
-                    <h5>{{ __('messages.our_app') }}</h5>
-                    <p>App</p>
-                </div>
-            </div>
-            <!-- FAQs -->
-            <div class="col-6 col-md-3">
-                <a href="{{ route('faqs') }}" class="text-decoration-none">
+                <a href="{{ route('services') }}" class="text-decoration-none">
                     <div class="service-card">
                         <div class="icon-wrapper">
-                            <i class="bi bi-question-circle"></i>
+                            <i class="bi bi-receipt"></i>
                         </div>
-                        <h5>{{ __('messages.faq') }}</h5>
-                        <p>FAQs</p>
+                        <h5>{{ __('messages.water_bill') }}</h5>
+                        <p>Water Bill</p>
                     </div>
                 </a>
             </div>
-            <!-- Email -->
             <div class="col-6 col-md-3">
-                <a href="mailto:{{ \App\Models\Setting::get('email', 'info@example.com') }}" class="text-decoration-none">
+                <a href="{{ route('services') }}" class="text-decoration-none">
                     <div class="service-card">
                         <div class="icon-wrapper">
-                            <i class="bi bi-envelope"></i>
+                            <i class="bi bi-plus-circle"></i>
                         </div>
-                        <h5>Email</h5>
+                        <h5>{{ __('messages.new_connection') }}</h5>
+                        <p>New Connection</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ route('complaint.form') }}" class="text-decoration-none">
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-exclamation-circle"></i>
+                        </div>
+                        <h5>{{ __('messages.complaint_registration') }}</h5>
+                        <p>Complaints</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ route('water-schedule') }}" class="text-decoration-none">
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h5>{{ __('messages.water_schedule') }}</h5>
+                        <p>Schedule</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+                        <h5>{{ __('messages.online_payment') }}</h5>
+                        <p>Online Payment</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ route('downloads') }}" class="text-decoration-none">
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-download"></i>
+                        </div>
+                        <h5>{{ __('messages.download_forms') }}</h5>
+                        <p>Downloads</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-file-text"></i>
+                        </div>
+                        <h5>{{ __('messages.citizen_charter') }}</h5>
+                        <p>Charter</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3">
+                <a href="{{ route('complaint.form') }}" class="text-decoration-none">
+                    <div class="service-card">
+                        <div class="icon-wrapper">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <h5>{{ __('messages.contact_us') }}</h5>
                         <p>Contact</p>
                     </div>
                 </a>
@@ -287,109 +331,6 @@
         </div>
     </div>
 </section>
-
-<!-- Office Staff Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="section-header">
-            <h2>{{ __('messages.office_staff') }}</h2>
-            <div class="divider"></div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="staff-photo mb-3">
-                            <div class="avatar-circle">
-                                <i class="bi bi-person"></i>
-                            </div>
-                        </div>
-                        <h4 class="card-title">Mr. Sarbjit Kumar Chaudhary</h4>
-                        <p class="text-primary fw-bold">{{ __('messages.information_officer') }}</p>
-                        <p class="card-text">
-                            <i class="bi bi-telephone me-2"></i>9851340215
-                        </p>
-                        <p class="card-text">
-                            <i class="bi bi-envelope me-2"></i>information@nea.org.np
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="staff-photo mb-3">
-                            <div class="avatar-circle">
-                                <i class="bi bi-person"></i>
-                            </div>
-                        </div>
-                        <h4 class="card-title">Ms. Punam Joshi</h4>
-                        <p class="text-primary fw-bold">{{ __('messages.nodal_officer') }}</p>
-                        <p class="card-text">
-                            <i class="bi bi-telephone me-2"></i>9851355696
-                        </p>
-                        <p class="card-text">
-                            <i class="bi bi-envelope me-2"></i>gunaso@nea.org.np
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- App Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="section-header">
-            <h2>{{ __('messages.our_app') }}</h2>
-            <div class="divider"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-body p-5 text-center">
-                        <div class="app-logo mb-4">
-                            <i class="bi bi-phone" style="font-size: 80px; color: var(--primary-color);"></i>
-                        </div>
-                        <h3 class="card-title mb-3">Gunjanagar Khane Pani App</h3>
-                        <p class="card-text text-muted mb-4">
-                            {{ app()->getLocale() === 'ne' ? 'हाम्रो एप डाउनलोड गर्नुहोस् र सजिलै सेवा प्राप्त गर्नुहोस्' : 'Download our app and get services easily' }}
-                        </p>
-                        <div class="d-flex justify-content-center gap-3">
-                            <a href="#" class="btn btn-dark btn-lg">
-                                <i class="bi bi-google-play me-2"></i>{{ __('messages.google_play') }}
-                            </a>
-                            <a href="#" class="btn btn-dark btn-lg">
-                                <i class="bi bi-apple me-2"></i>{{ __('messages.app_store') }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-    .avatar-circle {
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(135deg, var(--water-blue), var(--accent-blue));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        color: white;
-        font-size: 50px;
-    }
-    
-    .staff-photo {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 <!-- Notice + Water Status + Schedule Section -->
 <section class="py-5">
