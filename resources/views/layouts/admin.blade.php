@@ -40,12 +40,14 @@
         .sidebar {
             width: var(--sidebar-width);
             background: linear-gradient(180deg, var(--primary-color) 0%, #152a45 100%);
-            min-height: 100vh;
+            height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         
         .sidebar-brand {
