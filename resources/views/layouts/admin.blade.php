@@ -224,13 +224,17 @@
             <small>Admin Panel</small>
         </div>
         
+        <div class="nepali-date" style="padding: 10px 20px; text-align: center; color: var(--primary-color); font-size: 14px; border-bottom: 1px solid #eee;">
+            {{ \App\Helpers\NepaliDateHelper::getNepaliToday() }}
+        </div>
+        
         <nav class="sidebar-menu">
             <div class="nav-header">Main</div>
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                         <i class="bi bi-speedometer2"></i>
-                        <span>{{ __('messages.dashboard') }}</span>
+                        <span>{{ $orgName ?? __('messages.dashboard') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
