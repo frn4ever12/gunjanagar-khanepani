@@ -115,16 +115,6 @@
                 <div class="about-image position-relative">
                     @if($about->image)
                         <img src="{{ asset('storage/' . $about->image) }}" alt="{{ __('messages.organization_intro') }}" class="img-fluid rounded" style="width: 100%; height: auto;">
-                    @else
-                        <div style="background: linear-gradient(135deg, var(--primary-color), var(--water-blue)); border-radius: 10px; padding: 40px; color: white; text-align: center;">
-                            <i class="bi bi-building" style="font-size: 80px; opacity: 0.8;"></i>
-                            <h4 class="mt-3 fw-bold">{{ __('messages.organization_intro') }}</h4>
-                            @if($about->organization_intro)
-                                <p class="mt-2 mb-0" style="opacity: 0.9; font-size: 15px;">
-                                    {{ Str::limit(strip_tags($about->organization_intro), 150) }}
-                                </p>
-                            @endif
-                        </div>
                     @endif
                 </div>
             </div>
