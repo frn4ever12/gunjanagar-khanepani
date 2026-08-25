@@ -234,7 +234,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                         <i class="bi bi-speedometer2"></i>
-                        <span>{{ $orgName ?? __('messages.dashboard') }}</span>
+                        <span>{{ __('messages.dashboard') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
