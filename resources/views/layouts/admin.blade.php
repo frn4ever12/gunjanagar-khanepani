@@ -48,6 +48,7 @@
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
         
         .sidebar-brand {
@@ -72,7 +73,6 @@
             overflow-y: auto;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            max-height: calc(100vh - 200px);
         }
         
         .sidebar-menu::-webkit-scrollbar {
