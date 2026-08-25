@@ -73,6 +73,7 @@
             overflow-y: auto;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            min-height: 0;
         }
         
         .sidebar-menu::-webkit-scrollbar {
