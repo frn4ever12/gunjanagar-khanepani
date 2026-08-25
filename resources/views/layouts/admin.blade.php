@@ -224,7 +224,7 @@
             <small>Admin Panel</small>
         </div>
         
-        <div class="nepali-date" style="padding: 10px 20px; text-align: center; color: var(--primary-color); font-size: 14px; border-bottom: 1px solid #eee;">
+        <div class="nepali-date" style="padding: 10px 20px; text-align: center; color: white; font-size: 14px; border-bottom: 1px solid #eee;">
             {{ \App\Helpers\NepaliDateHelper::getNepaliToday() }}
         </div>
         
