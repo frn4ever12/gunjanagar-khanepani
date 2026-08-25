@@ -70,10 +70,11 @@
         
         .sidebar-menu {
             flex: 1;
-            overflow-y: auto;
+            overflow-y: scroll;
             overflow-x: hidden;
             scroll-behavior: smooth;
             min-height: 0;
+            max-height: calc(100vh - 180px);
         }
         
         .sidebar-menu::-webkit-scrollbar {
