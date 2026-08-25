@@ -213,7 +213,14 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <h4>{{ config('app.name') }}</h4>
+            @php
+                $logo = \App\Models\Setting::get('logo');
+                $orgName = app()->getLocale() === 'ne' ? \App\Models\Setting::get('org_name_ne') : \App\Models\Setting::get('org_name_en');
+            @endphp
+            @if($logo)
+                <img src="{{ asset('storage/' . $logo) }}" alt="Logo" style="height: 50px; margin-bottom: 10px;">
+            @endif
+            <h4>{{ $orgName ?? config('app.name') }}</h4>
             <small>Admin Panel</small>
         </div>
         
