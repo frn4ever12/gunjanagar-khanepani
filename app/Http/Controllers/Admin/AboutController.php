@@ -62,16 +62,42 @@ class AboutController extends Controller
         $about = AboutUs::first() ?? new AboutUs();
 
         $request->validate([
+            'title_en' => 'nullable|string|max:255',
+            'title_ne' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'organization_intro_en' => 'nullable|string',
             'organization_intro_ne' => 'nullable|string',
         ]);
 
         // Set default values for required fields if creating new record
         if (!$about->exists) {
-            $about->title_en = 'About Us';
-            $about->title_ne = 'हाम्रो बारेमा';
+            $about->title_en = $request->title_en ?? 'About Us';
+            $about->title_ne = $request->title_ne ?? 'हाम्रो बारेमा';
             $about->description_en = 'Description';
             $about->description_ne = 'विवरण';
+        } else {
+            // Update title if provided
+            if ($request->title_en) {
+                $about->title_en = $request->title_en;
+            }
+            if ($request->title_ne) {
+                $about->title_ne = $request->title_ne;
+            }
+        }
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            if ($about->image && Storage::disk('public')->exists($about->image)) {
+                Storage::disk('public')->delete($about->image);
+            }
+            $image = $request->file('image');
+            $imagePath = $image->store('about-us', 'public');
+            $about->image = $imagePath;
+        } elseif ($request->has('remove_image') && $request->remove_image) {
+            if ($about->image && Storage::disk('public')->exists($about->image)) {
+                Storage::disk('public')->delete($about->image);
+            }
+            $about->image = null;
         }
 
         $about->organization_intro_en = $request->organization_intro_en;
