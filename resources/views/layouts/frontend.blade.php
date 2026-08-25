@@ -260,7 +260,10 @@
 
         /* Navigation - Row 2 */
         .main-navbar {
-            background: var(--primary-color);
+            background: linear-gradient(rgba(10, 46, 92, 0.85), rgba(10, 46, 92, 0.85)), url('{{ asset('images/navbar-bg.jpg.png') }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-top: 0;
