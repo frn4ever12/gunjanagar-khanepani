@@ -7,12 +7,18 @@
     <div class="row">
         <div class="col-lg-8 mx-auto">
             @if($about)
-                <h1 class="display-5 fw-bold mb-4">{{ __('messages.organization_intro') }}</h1>
+                @if($about->image)
+                    <div class="mb-4">
+                        <img src="{{ asset('storage/' . $about->image) }}" alt="{{ $about->title }}" class="img-fluid rounded">
+                    </div>
+                @endif
+                
+                <h1 class="display-5 fw-bold mb-4">{{ $about->title ?? __('messages.organization_intro') }}</h1>
                 
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         @if($about->organization_intro)
-                            <p class="text-muted">{{ $about->organization_intro }}</p>
+                            <div class="text-muted">{!! $about->organization_intro !!}</div>
                         @else
                             <p class="text-muted">{{ $about->description }}</p>
                         @endif
