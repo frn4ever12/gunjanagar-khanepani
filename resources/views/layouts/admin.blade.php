@@ -226,6 +226,12 @@
                         <span>{{ __('messages.dashboard') }}</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.about.*') ? 'active' : '' }}" href="{{ route('admin.about.index') }}">
+                        <i class="bi bi-info-circle"></i>
+                        <span>{{ __('messages.about') }}</span>
+                    </a>
+                </li>
             </ul>
             
             <div class="nav-header">Website</div>
@@ -314,16 +320,6 @@
                     <a class="nav-link {{ request()->routeIs('admin.office-staff.*') ? 'active' : '' }}" href="{{ route('admin.office-staff.index') }}">
                         <i class="bi bi-person-badge"></i>
                         <span>{{ __('messages.office_staff') }}</span>
-                    </a>
-                </li>
-            </ul>
-            
-            <div class="nav-header">About Us</div>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.*') ? 'active' : '' }}" href="{{ route('admin.about.index') }}">
-                        <i class="bi bi-info-circle"></i>
-                        <span>{{ __('messages.about') }}</span>
                     </a>
                 </li>
             </ul>
