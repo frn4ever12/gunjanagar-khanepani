@@ -154,19 +154,17 @@
         }
 
         .lang-toggle-switch .toggle-knob {
-            width: 20px;
+            width: 40px;
             height: 20px;
             background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
             transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .lang-toggle-switch .toggle-container.en-active .toggle-knob {
-            transform: translateX(38px);
+            transform: translateX(20px);
         }
         
         /* Organization Header - Row 1: Branding */
@@ -929,36 +927,15 @@
                             <i class="bi bi-house me-1"></i> {{ __('messages.home') }}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('about*') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">
                             {{ __('messages.about') }}
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('organization-intro') ? 'active' : '' }}" href="{{ route('organization-intro') }}">
-                            {{ __('messages.organization_intro') }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('our-mission') ? 'active' : '' }}" href="{{ route('our-mission') }}">
-                            {{ __('messages.our_mission') }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('our-vision') ? 'active' : '' }}" href="{{ route('our-vision') }}">
-                            {{ __('messages.our_vision') }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('organization-structure') ? 'active' : '' }}" href="{{ route('organization-structure') }}">
-                            {{ __('messages.organization_structure') }}
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {{ request()->routeIs('board-members') || request()->routeIs('office-staff') ? 'active' : '' }}" href="#" data-bs-toggle="dropdown">
-                            {{ __('messages.board_members') }}
-                        </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">{{ __('messages.organization_intro') }}</a></li>
+                            <li><a class="dropdown-item {{ request()->routeIs('our-mission') ? 'active' : '' }}" href="{{ route('our-mission') }}">{{ __('messages.our_mission') }}</a></li>
+                            <li><a class="dropdown-item {{ request()->routeIs('our-vision') ? 'active' : '' }}" href="{{ route('our-vision') }}">{{ __('messages.our_vision') }}</a></li>
+                            <li><a class="dropdown-item {{ request()->routeIs('organization-structure') ? 'active' : '' }}" href="{{ route('organization-structure') }}">{{ __('messages.organization_structure') }}</a></li>
                             <li><a class="dropdown-item {{ request()->routeIs('board-members') ? 'active' : '' }}" href="{{ route('board-members') }}">{{ __('messages.board_members') }}</a></li>
                             <li><a class="dropdown-item {{ request()->routeIs('office-staff') ? 'active' : '' }}" href="{{ route('office-staff') }}">{{ __('messages.office_staff') }}</a></li>
                         </ul>
@@ -999,13 +976,14 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <div class="lang-toggle-switch">
-                        <span class="lang-label {{ app()->getLocale() === 'ne' ? 'active' : '' }}" onclick="setLanguage('ne')">NP</span>
-                        <div class="toggle-container {{ app()->getLocale() === 'en' ? 'en-active' : '' }}" onclick="toggleLanguage()">
-                            <div class="toggle-knob"></div>
+                    <form action="{{ route('language.switch', app()->getLocale() === 'en' ? 'ne' : 'en') }}" method="POST" class="lang-toggle-switch">
+                        @csrf
+                        <span class="lang-label {{ app()->getLocale() === 'ne' ? 'active' : '' }}">{{ __('messages.nepali') }}</span>
+                        <div class="toggle-container {{ app()->getLocale() === 'en' ? 'en-active' : '' }}">
+                            <button type="submit" class="toggle-knob"></button>
                         </div>
-                        <span class="lang-label {{ app()->getLocale() === 'en' ? 'active' : '' }}" onclick="setLanguage('en')">EN</span>
-                    </div>
+                        <span class="lang-label {{ app()->getLocale() === 'en' ? 'active' : '' }}">{{ __('messages.english') }}</span>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1112,32 +1090,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <script>
-        function setLanguage(lang) {
-            // Update session via AJAX
-            fetch('/language/' + lang, {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({ _token: '{{ csrf_token() }}' })
-            }).then(response => {
-                if (response.ok) {
-                    // Reload page to apply language change
-                    window.location.reload();
-                }
-            });
-        }
-
-        function toggleLanguage() {
-            const currentLang = '{{ app()->getLocale() }}';
-            const newLang = currentLang === 'ne' ? 'en' : 'ne';
-            setLanguage(newLang);
-        }
-    </script>
 
     @stack('scripts')
 </body>

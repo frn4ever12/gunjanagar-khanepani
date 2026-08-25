@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Summernote CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.css" rel="stylesheet">
     
     <style>
         :root {
@@ -307,31 +309,25 @@
             <div class="nav-header">About Us</div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.*') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
-                        <i class="bi bi-info-circle"></i>
-                        <span>{{ __('messages.about') }}</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit-organization-intro') ? 'active' : '' }}" href="{{ route('admin.about.edit-organization-intro') }}">
                         <i class="bi bi-building"></i>
                         <span>{{ __('messages.organization_intro') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit-our-mission') ? 'active' : '' }}" href="{{ route('admin.about.edit-our-mission') }}">
                         <i class="bi bi-bullseye"></i>
                         <span>{{ __('messages.our_mission') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit-our-vision') ? 'active' : '' }}" href="{{ route('admin.about.edit-our-vision') }}">
                         <i class="bi bi-eye"></i>
                         <span>{{ __('messages.our_vision') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit-organization-structure') ? 'active' : '' }}" href="{{ route('admin.about.edit-organization-structure') }}">
                         <i class="bi bi-diagram-3"></i>
                         <span>{{ __('messages.organization_structure') }}</span>
                     </a>
@@ -388,16 +384,22 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="{{ route('language.switch', 'en') }}">
-                                    <i class="bi bi-check-circle me-2" style="display: {{ app()->getLocale() === 'en' ? 'inline' : 'none' }}"></i>
-                                    English
-                                </a>
+                                <form action="{{ route('language.switch', 'en') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-check-circle me-2" style="display: {{ app()->getLocale() === 'en' ? 'inline' : 'none' }}"></i>
+                                        English
+                                    </button>
+                                </form>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="{{ route('language.switch', 'ne') }}">
-                                    <i class="bi bi-check-circle me-2" style="display: {{ app()->getLocale() === 'ne' ? 'inline' : 'none' }}"></i>
-                                    नेपाली
-                                </a>
+                                <form action="{{ route('language.switch', 'ne') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">
+                                        <i class="bi bi-check-circle me-2" style="display: {{ app()->getLocale() === 'ne' ? 'inline' : 'none' }}"></i>
+                                        नेपाली
+                                    </button>
+                                </form>
                             </li>
                         </ul>
                     </div>
@@ -425,21 +427,40 @@
             </div>
         </header>
         
-        <!-- Content -->
         <div class="content-wrapper">
             @yield('content')
         </div>
     </div>
     
-    <!-- Bootstrap 5 JS -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Summernote JS -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.js"></script>
     
     <script>
         // Sidebar Toggle
         document.getElementById('sidebarToggle')?.addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('show');
+        });
+    </script>
+    
+    <!-- Summernote Initialization -->
+    <script>
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height: 300,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
         });
     </script>
     

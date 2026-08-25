@@ -24,13 +24,12 @@ Route::post('/language/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'ne'])) {
         session()->put('locale', $locale);
     }
-    return response()->json(['success' => true]);
+    return redirect()->back();
 })->name('language.switch');
 
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/about/organization-intro', [HomeController::class, 'organizationIntro'])->name('organization-intro');
 Route::get('/about/our-mission', [HomeController::class, 'ourMission'])->name('our-mission');
 Route::get('/about/our-vision', [HomeController::class, 'ourVision'])->name('our-vision');
 Route::get('/about/organization-structure', [HomeController::class, 'organizationStructure'])->name('organization-structure');
@@ -207,6 +206,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::prefix('about')->name('about.')->group(function () {
         Route::get('/', [AboutController::class, 'edit'])->name('edit');
         Route::put('/', [AboutController::class, 'update'])->name('update');
+        Route::get('/organization-intro', [AboutController::class, 'editOrganizationIntro'])->name('edit-organization-intro');
+        Route::put('/organization-intro', [AboutController::class, 'updateOrganizationIntro'])->name('update-organization-intro');
+        Route::get('/our-mission', [AboutController::class, 'editOurMission'])->name('edit-our-mission');
+        Route::put('/our-mission', [AboutController::class, 'updateOurMission'])->name('update-our-mission');
+        Route::get('/our-vision', [AboutController::class, 'editOurVision'])->name('edit-our-vision');
+        Route::put('/our-vision', [AboutController::class, 'updateOurVision'])->name('update-our-vision');
+        Route::get('/organization-structure', [AboutController::class, 'editOrganizationStructure'])->name('edit-organization-structure');
+        Route::put('/organization-structure', [AboutController::class, 'updateOrganizationStructure'])->name('update-organization-structure');
     });
 
     // Board Members Routes

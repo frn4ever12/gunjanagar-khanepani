@@ -111,13 +111,6 @@ class HomeController extends Controller
     {
         $about = AboutUs::first();
         $tickerItems = $this->getTickerItems();
-        return view('about', compact('about', 'tickerItems'));
-    }
-
-    public function organizationIntro()
-    {
-        $about = AboutUs::first();
-        $tickerItems = $this->getTickerItems();
         return view('organization-intro', compact('about', 'tickerItems'));
     }
 
