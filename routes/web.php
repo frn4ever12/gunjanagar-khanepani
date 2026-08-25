@@ -30,6 +30,10 @@ Route::post('/language/{locale}', function ($locale) {
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/about/organization-intro', [HomeController::class, 'organizationIntro'])->name('organization-intro');
+Route::get('/about/our-mission', [HomeController::class, 'ourMission'])->name('our-mission');
+Route::get('/about/our-vision', [HomeController::class, 'ourVision'])->name('our-vision');
+Route::get('/about/organization-structure', [HomeController::class, 'organizationStructure'])->name('organization-structure');
 Route::get('/about/board-members', [HomeController::class, 'boardMembers'])->name('board-members');
 Route::get('/about/office-staff', [HomeController::class, 'officeStaff'])->name('office-staff');
 Route::get('/services', [HomeController::class, 'services'])->name('services');

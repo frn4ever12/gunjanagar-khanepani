@@ -23,6 +23,10 @@ return new class extends Migration
             $table->text('mission_ne')->nullable();
             $table->text('vision_en')->nullable();
             $table->text('vision_ne')->nullable();
+            $table->text('organization_intro_en')->nullable();
+            $table->text('organization_intro_ne')->nullable();
+            $table->text('organization_structure_en')->nullable();
+            $table->text('organization_structure_ne')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

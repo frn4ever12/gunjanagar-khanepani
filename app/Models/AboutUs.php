@@ -17,6 +17,10 @@ class AboutUs extends Model
         'mission_ne',
         'vision_en',
         'vision_ne',
+        'organization_intro_en',
+        'organization_intro_ne',
+        'organization_structure_en',
+        'organization_structure_ne',
         'image',
     ];
 
@@ -43,5 +47,15 @@ class AboutUs extends Model
     public function getVisionAttribute()
     {
         return app()->getLocale() === 'ne' ? $this->vision_ne : $this->vision_en;
+    }
+
+    public function getOrganizationIntroAttribute()
+    {
+        return app()->getLocale() === 'ne' ? $this->organization_intro_ne : $this->organization_intro_en;
+    }
+
+    public function getOrganizationStructureAttribute()
+    {
+        return app()->getLocale() === 'ne' ? $this->organization_structure_ne : $this->organization_structure_en;
     }
 }

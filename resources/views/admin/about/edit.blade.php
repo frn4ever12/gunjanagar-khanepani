@@ -100,6 +100,38 @@
                 </div>
                 
                 <div class="col-md-12 mb-3">
+                    <label class="form-label">Organization Introduction (English)</label>
+                    <textarea name="organization_intro_en" class="form-control" rows="4">{{ old('organization_intro_en', $about ? $about->organization_intro_en : '') }}</textarea>
+                    @error('organization_intro_en')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
+                </div>
+                
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Organization Introduction (Nepali)</label>
+                    <textarea name="organization_intro_ne" class="form-control" rows="4">{{ old('organization_intro_ne', $about ? $about->organization_intro_ne : '') }}</textarea>
+                    @error('organization_intro_ne')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
+                </div>
+                
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Organization Structure (English)</label>
+                    <textarea name="organization_structure_en" class="form-control" rows="4">{{ old('organization_structure_en', $about ? $about->organization_structure_en : '') }}</textarea>
+                    @error('organization_structure_en')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
+                </div>
+                
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Organization Structure (Nepali)</label>
+                    <textarea name="organization_structure_ne" class="form-control" rows="4">{{ old('organization_structure_ne', $about ? $about->organization_structure_ne : '') }}</textarea>
+                    @error('organization_structure_ne')
+                        <div class="text-danger small">{{ $message }}</div>
+                    @enderror
+                </div>
+                
+                <div class="col-md-12 mb-3">
                     <label class="form-label">Image</label>
                     <input type="file" name="image" class="form-control" accept="image/*">
                     @if($about && $about->image)

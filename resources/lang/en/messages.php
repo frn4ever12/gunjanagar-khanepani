@@ -4,6 +4,10 @@ return [
     // Navigation
     'home' => 'Home',
     'about' => 'About Us',
+    'organization_intro' => 'Organization Introduction',
+    'our_mission' => 'Our Mission',
+    'our_vision' => 'Our Vision',
+    'organization_structure' => 'Organization Structure',
     'services' => 'Services',
     'notices' => 'Notices',
     'news' => 'News & Updates',

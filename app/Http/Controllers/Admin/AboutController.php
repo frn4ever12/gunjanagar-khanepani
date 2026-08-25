@@ -30,6 +30,10 @@ class AboutController extends Controller
             'mission_ne' => 'nullable|string',
             'vision_en' => 'nullable|string',
             'vision_ne' => 'nullable|string',
+            'organization_intro_en' => 'nullable|string',
+            'organization_intro_ne' => 'nullable|string',
+            'organization_structure_en' => 'nullable|string',
+            'organization_structure_ne' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -43,6 +47,10 @@ class AboutController extends Controller
         $about->mission_ne = $request->mission_ne;
         $about->vision_en = $request->vision_en;
         $about->vision_ne = $request->vision_ne;
+        $about->organization_intro_en = $request->organization_intro_en;
+        $about->organization_intro_ne = $request->organization_intro_ne;
+        $about->organization_structure_en = $request->organization_structure_en;
+        $about->organization_structure_ne = $request->organization_structure_ne;
 
         if ($request->hasFile('image')) {
             if ($about->image && Storage::disk('public')->exists($about->image)) {

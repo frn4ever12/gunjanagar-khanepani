@@ -313,6 +313,30 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                        <i class="bi bi-building"></i>
+                        <span>{{ __('messages.organization_intro') }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                        <i class="bi bi-bullseye"></i>
+                        <span>{{ __('messages.our_mission') }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                        <i class="bi bi-eye"></i>
+                        <span>{{ __('messages.our_vision') }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.about.edit') ? 'active' : '' }}" href="{{ route('admin.about.edit') }}">
+                        <i class="bi bi-diagram-3"></i>
+                        <span>{{ __('messages.organization_structure') }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.board-members.*') ? 'active' : '' }}" href="{{ route('admin.board-members.index') }}">
                         <i class="bi bi-people"></i>
                         <span>{{ __('messages.board_members') }}</span>

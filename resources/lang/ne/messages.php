@@ -4,6 +4,10 @@ return [
     // Navigation
     'home' => 'गृहपृष्ठ',
     'about' => 'हाम्रो बारेमा',
+    'organization_intro' => 'संस्थाको परिचय',
+    'our_mission' => 'हाम्रो उद्देश्य',
+    'our_vision' => 'हाम्रो दृष्टि',
+    'organization_structure' => 'संगठन संरचना',
     'services' => 'सेवाहरू',
     'notices' => 'सूचनाहरू',
     'news' => 'समाचार तथा अपडेटहरू',

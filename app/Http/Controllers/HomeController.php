@@ -114,6 +114,34 @@ class HomeController extends Controller
         return view('about', compact('about', 'tickerItems'));
     }
 
+    public function organizationIntro()
+    {
+        $about = AboutUs::first();
+        $tickerItems = $this->getTickerItems();
+        return view('organization-intro', compact('about', 'tickerItems'));
+    }
+
+    public function ourMission()
+    {
+        $about = AboutUs::first();
+        $tickerItems = $this->getTickerItems();
+        return view('our-mission', compact('about', 'tickerItems'));
+    }
+
+    public function ourVision()
+    {
+        $about = AboutUs::first();
+        $tickerItems = $this->getTickerItems();
+        return view('our-vision', compact('about', 'tickerItems'));
+    }
+
+    public function organizationStructure()
+    {
+        $about = AboutUs::first();
+        $tickerItems = $this->getTickerItems();
+        return view('organization-structure', compact('about', 'tickerItems'));
+    }
+
     public function boardMembers()
     {
         $boardMembers = BoardMember::active()->ordered()->get();
