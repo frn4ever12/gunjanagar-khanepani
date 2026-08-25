@@ -70,11 +70,10 @@
         
         .sidebar-menu {
             flex: 1;
-            overflow-y: scroll;
+            overflow-y: auto;
             overflow-x: hidden;
             scroll-behavior: smooth;
             min-height: 0;
-            max-height: calc(100vh - 180px);
         }
         
         .sidebar-menu::-webkit-scrollbar {
@@ -229,7 +228,8 @@
             {{ \App\Helpers\NepaliDateHelper::getNepaliToday() }}
         </div>
         
-        <nav class="sidebar-menu">
+        <div style="flex: 1; overflow-y: auto; overflow-x: hidden;">
+            <nav class="sidebar-menu">
             <div class="nav-header">Main</div>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -352,6 +352,7 @@
                 </li>
             </ul>
         </nav>
+        </div>
     </aside>
     
     <!-- Main Content -->
