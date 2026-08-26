@@ -534,4 +534,156 @@
         </div>
     </div>
 </section>
+
+<!-- Staff & Apps Section -->
+<section class="py-5" style="background-color: #EAF4F8;">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Left Column - Staff Information Cards -->
+            <div class="col-lg-6">
+                @php
+                    $officeStaff = \App\Models\OfficeStaff::where('status', 'active')->take(2)->get();
+                @endphp
+                @if($officeStaff->count() > 0)
+                    @foreach($officeStaff as $staff)
+                    <div class="staff-card mb-3" style="background: #FFFFFF; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px;">
+                        <div class="d-flex align-items-center">
+                            <div class="staff-photo me-3" style="flex-shrink: 0;">
+                                @if($staff->image)
+                                    <img src="{{ asset('storage/' . $staff->image) }}" alt="{{ $staff->name }}" style="width: 80px; height: 90px; object-fit: cover; border-radius: 8px;">
+                                @else
+                                    <div style="width: 80px; height: 90px; background: #EAF4F8; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="bi bi-person text-muted fs-2"></i>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="staff-info flex-grow-1">
+                                <h6 class="mb-1 fw-bold" style="color: #333;">{{ $staff->name }}</h6>
+                                <p class="mb-1 text-muted small">{{ $staff->designation }}</p>
+                                @if($staff->phone)
+                                    <a href="tel:{{ $staff->phone }}" class="text-decoration-none small d-block" style="color: #666;">
+                                        <i class="bi bi-telephone me-1"></i>{{ $staff->phone }}
+                                    </a>
+                                @endif
+                                @if($staff->email)
+                                    <a href="mailto:{{ $staff->email }}" class="text-decoration-none small d-block" style="color: #666;">
+                                        <i class="bi bi-envelope me-1"></i>{{ $staff->email }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                @else
+                    <!-- Fallback hardcoded staff cards if no data in system -->
+                    <div class="staff-card mb-3" style="background: #FFFFFF; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px;">
+                        <div class="d-flex align-items-center">
+                            <div class="staff-photo me-3" style="flex-shrink: 0;">
+                                <div style="width: 80px; height: 90px; background: #EAF4F8; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="bi bi-person text-muted fs-2"></i>
+                                </div>
+                            </div>
+                            <div class="staff-info flex-grow-1">
+                                <h6 class="mb-1 fw-bold" style="color: #333;">Mr. Sarbjit Kumar Chaudhary</h6>
+                                <p class="mb-1 text-muted small">Information Officer</p>
+                                <a href="tel:9851340215" class="text-decoration-none small d-block" style="color: #666;">
+                                    <i class="bi bi-telephone me-1"></i>9851340215
+                                </a>
+                                <a href="mailto:information@gunjanagarkhanepani.org.np" class="text-decoration-none small d-block" style="color: #666;">
+                                    <i class="bi bi-envelope me-1"></i>information@gunjanagarkhanepani.org.np
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="staff-card mb-3" style="background: #FFFFFF; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 20px;">
+                        <div class="d-flex align-items-center">
+                            <div class="staff-photo me-3" style="flex-shrink: 0;">
+                                <div style="width: 80px; height: 90px; background: #EAF4F8; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="bi bi-person text-muted fs-2"></i>
+                                </div>
+                            </div>
+                            <div class="staff-info flex-grow-1">
+                                <h6 class="mb-1 fw-bold" style="color: #333;">Ms. Punam Joshi</h6>
+                                <p class="mb-1 text-muted small">Nodal Officer</p>
+                                <a href="tel:9851355696" class="text-decoration-none small d-block" style="color: #666;">
+                                    <i class="bi bi-telephone me-1"></i>9851355696
+                                </a>
+                                <a href="mailto:gunaso@gunjanagarkhanepani.org.np" class="text-decoration-none small d-block" style="color: #666;">
+                                    <i class="bi bi-envelope me-1"></i>gunaso@gunjanagarkhanepani.org.np
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+
+            <!-- Right Column - Apps & Actions Section -->
+            <div class="col-lg-6">
+                <div class="apps-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px;">
+                    <!-- Button 1: Gunjanagar Khanepani App - Play Store -->
+                    <a href="#" class="app-btn text-decoration-none" style="background-color: #FFB703; color: #333; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="fab fa-google-play fs-2 mb-2"></i>
+                        <span class="fw-bold small">Gunjanagar Khanepani App</span>
+                    </a>
+
+                    <!-- Button 2: Gunjanagar Khanepani App - Apple -->
+                    <a href="#" class="app-btn text-decoration-none" style="background-color: #1B8A5A; color: white; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="fab fa-apple fs-2 mb-2"></i>
+                        <span class="fw-bold small">Gunjanagar Khanepani App</span>
+                    </a>
+
+                    <!-- Button 3: Khanepani Meter App - Play Store -->
+                    <a href="#" class="app-btn text-decoration-none" style="background-color: #003366; color: white; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="fab fa-google-play fs-2 mb-2"></i>
+                        <span class="fw-bold small">Khanepani Meter App</span>
+                    </a>
+
+                    <!-- Button 4: Khanepani Meter App - Apple -->
+                    <a href="#" class="app-btn text-decoration-none" style="background-color: #212529; color: white; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <i class="fab fa-apple fs-2 mb-2"></i>
+                        <span class="fw-bold small">Khanepani Meter App</span>
+                    </a>
+                </div>
+
+                <!-- Divider -->
+                <hr style="border-color: #ccc; margin: 20px 0;">
+
+                <!-- Action Buttons -->
+                <div class="row g-3">
+                    <div class="col-6">
+                        <a href="#" class="action-btn text-decoration-none d-block" style="background-color: #6c757d; color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="fw-bold">FAQs</span>
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="mailto:{{ \App\Models\Setting::get('email') }}" class="action-btn text-decoration-none d-block" style="background-color: #6c757d; color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <i class="fas fa-envelope"></i>
+                            <span class="fw-bold">Email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .app-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    }
+
+    .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        background-color: #5a6268 !important;
+    }
+
+    @media (max-width: 768px) {
+        .apps-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
 @endsection
